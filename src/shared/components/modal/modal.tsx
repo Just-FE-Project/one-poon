@@ -16,12 +16,12 @@ interface IProps {
 export const Modal = ({ children, title, openButtonText, closeButtonText, classNames }: IProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const handleOpenModal = () => setIsOpen(true);
+  const handleCloseModal = () => setIsOpen(false);
 
   return (
     <>
-      <button className={`btn ${classNames?.openButton}`} onClick={openModal}>
+      <button className={`btn ${classNames?.openButton}`} onClick={handleOpenModal}>
         {openButtonText}
       </button>
 
@@ -31,7 +31,7 @@ export const Modal = ({ children, title, openButtonText, closeButtonText, classN
             <h3 className={`text-lg font-bold ${classNames?.title}`}>{title}</h3>
             <p className="py-4">{children}</p>
             <div className="modal-action">
-              <button className={`btn ${classNames?.title}`} onClick={closeModal}>
+              <button className={`btn ${classNames?.title}`} onClick={handleCloseModal}>
                 {closeButtonText}
               </button>
             </div>
