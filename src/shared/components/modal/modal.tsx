@@ -1,43 +1,65 @@
-import { ReactNode, useState } from 'react';
+import { PropsWithChildren } from 'react';
 
-interface IProps {
-  children: ReactNode;
-  title: string;
-  openButtonText: string;
-  closeButtonText: string;
-  classNames?: {
-    modal?: string;
-    title?: string;
-    closeButton?: string;
-    openButton?: string;
-  };
+import { classVarianceAuthority, cn, type VariantProps } from '@/shared/utils/className';
+
+const ModalVariants = classVarianceAuthority('modal', {
+  variants: {
+    position: {
+      top: 'modal-top',
+
+      bottom: 'modal-bottom',
+
+      middle: 'modal-middle',
+    },
+  },
+
+  defaultVariants: {
+    position: 'middle',
+  },
+});
+
+interface IModalProps extends PropsWithChildren<VariantProps<typeof ModalVariants>> {
+  isOpen: boolean;
+
+  className?: string;
 }
 
-export const Modal = ({ children, title, openButtonText, closeButtonText, classNames }: IProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpenModal = () => setIsOpen(true);
-  const handleCloseModal = () => setIsOpen(false);
+const Modal = ({ children, isOpen, position, className }: IModalProps) => {
+  if (!isOpen) return null;
 
   return (
-    <>
-      <button className={`btn ${classNames?.openButton}`} onClick={handleOpenModal}>
-        {openButtonText}
-      </button>
-
-      {isOpen && (
-        <dialog className={`modal modal-bottom sm:modal-middle ${classNames?.modal}`} open>
-          <div className="modal-box">
-            <h3 className={`text-lg font-bold ${classNames?.title}`}>{title}</h3>
-            <p className="py-4">{children}</p>
-            <div className="modal-action">
-              <button className={`btn ${classNames?.title}`} onClick={handleCloseModal}>
-                {closeButtonText}
-              </button>
-            </div>
-          </div>
-        </dialog>
-      )}
-    </>
+    <dialog className={cn(ModalVariants({ position }), className)} open>
+      <div className="modal-box">{children}</div>
+    </dialog>
   );
 };
+
+interface IModalHeaderProps extends PropsWithChildren {
+  className?: string;
+}
+
+const ModalHeader = ({ className, children }: IModalHeaderProps) => (
+  <h3 className={cn('text-lg font-bold', className)}>{children}</h3>
+);
+
+interface IModalBodyProps extends PropsWithChildren {
+  className?: string;
+}
+
+const ModalBody = ({ className, children }: IModalBodyProps) => <p className={cn('py-4', className)}>{children}</p>;
+
+interface IModalActionsProps extends PropsWithChildren {
+  className?: string;
+}
+
+const ModalActions = ({ className, children }: IModalActionsProps) => (
+  <div className={cn('modal-action', className)}>{children}</div>
+);
+
+Modal.Header = ModalHeader;
+
+Modal.Body = ModalBody;
+
+Modal.Actions = ModalActions;
+
+export default Modal;
