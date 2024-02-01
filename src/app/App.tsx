@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import viteLogo from '/vite.svg';
+import Loading from '@/shared/components/loading/loading';
 import Modal from '@/shared/components/modal/modal';
 
 function App() {
@@ -47,6 +48,16 @@ function App() {
           </button>
         </Modal.Actions>
       </Modal>
+
+      {/* 로딩 스피너 테스트 */}
+
+      <Loading color={'primary'} size={'lg'} />
+
+      <Loading variant={'ball'} color={'secondary'} size={'lg'} />
+
+      <Loading variant={'dots'} size={'lg'} />
+
+      <Loading variant={'ring'} size={'lg'} />
     </>
   );
 }
