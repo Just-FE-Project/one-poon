@@ -1,13 +1,6 @@
 import { forwardRef, HTMLAttributes } from 'react';
 
-import { ComponentSize } from '@/shared/types/component';
 import { classVarianceAuthority, cn, VariantProps } from '@/shared/utils/className';
-
-interface IProps {
-  size?: ComponentSize;
-  color?: 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error' | 'error' | 'ghost';
-  variant?: 'spinner' | 'dots' | 'ring' | 'ball' | 'bars' | 'infinity';
-}
 
 const LoadingVariants = classVarianceAuthority('loading', {
   variants: {
