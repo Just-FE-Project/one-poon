@@ -6,25 +6,21 @@ const ModalVariants = classVarianceAuthority('modal', {
   variants: {
     position: {
       top: 'modal-top',
-
       bottom: 'modal-bottom',
-
       middle: 'modal-middle',
     },
   },
-
   defaultVariants: {
     position: 'middle',
   },
 });
 
-interface IModalProps extends PropsWithChildren<VariantProps<typeof ModalVariants>> {
+interface IProps extends PropsWithChildren<VariantProps<typeof ModalVariants>> {
   isOpen: boolean;
-
   className?: string;
 }
 
-const Modal = ({ children, isOpen, position, className }: IModalProps) => {
+export const Modal = ({ children, isOpen, position, className }: IProps) => {
   if (!isOpen) return null;
 
   return (
@@ -57,9 +53,5 @@ const ModalActions = ({ className, children }: IModalActionsProps) => (
 );
 
 Modal.Header = ModalHeader;
-
 Modal.Body = ModalBody;
-
 Modal.Actions = ModalActions;
-
-export default Modal;
