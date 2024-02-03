@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import viteLogo from '/vite.svg';
 import { Avatar } from '@/shared/components/avatar/avatar';
-import Loading from '@/shared/components/loading/loading';
+import { Loading } from '@/shared/components/loading/loading';
 
 function App() {
   const [count, setCount] = useState(0);
