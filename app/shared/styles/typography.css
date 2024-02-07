@@ -1,0 +1,157 @@
+@layer utilities {
+  .regular-15-body {
+    @apply text-[15px] font-normal leading-[140%];
+  }
+
+  .regular-14-body {
+    @apply text-[14px] font-normal leading-[150%];
+  }
+
+  .regular-14-body-und {
+    @apply text-[14px] font-normal leading-[150%] underline underline-offset-2;
+  }
+
+  .regular-14-body-str {
+    @apply text-[14px] font-normal leading-[150%] line-through;
+  }
+
+  .medium-14-body {
+    @apply text-[14px] font-medium leading-[150%];
+  }
+
+  .medium-14-body-und {
+    @apply text-[14px] font-medium leading-[150%] underline underline-offset-2;
+  }
+
+  .regular-13-body {
+    @apply text-[13px] font-normal leading-[130%];
+  }
+
+  .medium-13-body {
+    @apply text-[13px] font-medium leading-[150%];
+  }
+
+  .bold-13-body {
+    @apply text-[13px] font-bold leading-[150%];
+  }
+
+  .bold-16-sub-t {
+    @apply text-[16px] font-bold leading-[150%];
+  }
+
+  .bold-16-sub-t-und {
+    @apply text-[16px] font-bold leading-[150%] underline underline-offset-2;
+  }
+
+  .medium-16-sub-t {
+    @apply text-[16px] font-medium leading-[150%];
+  }
+
+  .medium-16-sub-t-und {
+    @apply text-[16px] font-medium leading-[150%] underline underline-offset-2;
+  }
+
+  .regular-16-sub-t {
+    @apply text-[16px] font-normal leading-[150%];
+  }
+
+  .regular-16-sub-t-str {
+    @apply text-[16px] font-normal leading-[150%] line-through;
+  }
+
+  .bold-15-sub-t {
+    @apply text-[15px] font-bold leading-[140%];
+  }
+
+  .bold-14-sub-t {
+    @apply text-[14px] font-bold leading-[150%];
+  }
+
+  .regular-12-cap {
+    @apply text-[12px] font-normal leading-[150%];
+  }
+
+  .regular-12-cap-str {
+    @apply text-[12px] font-normal leading-[150%] line-through;
+  }
+
+  .regular-12-cap-und {
+    @apply text-[12px] font-normal leading-[150%] underline underline-offset-2;
+  }
+
+  .medium-12-cap {
+    @apply text-[12px] font-medium leading-[150%];
+  }
+
+  .medium-12-cap-und {
+    @apply text-[12px] font-medium leading-[150%] underline underline-offset-2;
+  }
+
+  .bold-12-cap {
+    @apply text-[12px] font-bold leading-[150%];
+  }
+
+  .regular-11-cap {
+    @apply text-[11px] font-normal leading-[150%];
+  }
+
+  .medium-11-cap {
+    @apply text-[11px] font-medium leading-[150%];
+  }
+
+  .bold-11-cap {
+    @apply text-[11px] font-bold leading-[150%];
+  }
+
+  .medium-10-cap {
+    @apply text-[10px] font-medium leading-[150%];
+  }
+
+  .regular-11-cap {
+    @apply text-[10px] font-normal leading-[150%];
+  }
+
+  .medium-48-title {
+    @apply text-[48px] font-medium leading-[1.2rem];
+  }
+
+  .medium-36-title {
+    @apply text-[36px] font-medium leading-[130%];
+  }
+
+  .bold-32-title {
+    @apply text-[32px] font-bold leading-[100%];
+  }
+
+  .bold-28-title {
+    @apply text-[28px] font-bold leading-[140%];
+  }
+
+  .medium-28-title {
+    @apply text-[28px] font-medium leading-[130%];
+  }
+
+  .bold-24-title {
+    @apply text-[24px] font-bold leading-[130%];
+  }
+
+  .bold-20-title {
+    @apply text-[20px] font-bold leading-[150%];
+  }
+
+  .medium-20-title {
+    @apply text-[20px] font-medium leading-[150%];
+  }
+
+  .bold-18-title {
+    @apply text-[18px] font-bold leading-[150%];
+  }
+
+  .medium-18-title {
+    @apply text-[18px] font-medium leading-[150%];
+  }
+
+  .regular-18-title {
+    @apply text-[18px] font-normal leading-[150%];
+  }
+}
