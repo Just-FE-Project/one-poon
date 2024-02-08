@@ -8,7 +8,7 @@
     "plugin:prettier/recommended",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint", "simple-import-sort", "react-refresh"],
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
   "rules": {
     "@next/next/no-img-element": "off",
     "@next/next/no-title-in-document-head": "off",
@@ -24,7 +24,6 @@
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "react-hooks/exhaustive-deps": "off",
-    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-explicit-any": "warn",
