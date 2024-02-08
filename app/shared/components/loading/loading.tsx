@@ -10,14 +10,14 @@ const LoadingVariants = classVarianceAuthority('loading', {
       ring: 'loading-ring ',
       ball: 'loading-ball ',
       bars: 'loading-bars ',
-      infinity: 'loading-infinity ',
+      infinity: 'loading-infinity '
     },
 
     size: {
       xs: 'loading-xs',
       sm: 'loading-sm',
       md: 'loading-md',
-      lg: 'loading-lg',
+      lg: 'loading-lg'
     },
 
     color: {
@@ -28,14 +28,14 @@ const LoadingVariants = classVarianceAuthority('loading', {
       success: 'text-success',
       warning: 'text-warning',
       error: 'text-error',
-      ghost: 'text-ghost',
-    },
+      ghost: 'text-ghost'
+    }
   },
 
   defaultVariants: {
     variant: 'spinner',
-    size: 'md',
-  },
+    size: 'md'
+  }
 });
 
 interface IProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color'>, VariantProps<typeof LoadingVariants> {
@@ -45,7 +45,7 @@ interface IProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color'>, Variant
 export const Loading = forwardRef<HTMLSpanElement, IProps>(
   ({ size, variant = 'spinner', color, className, ...props }, ref) => {
     return <span {...props} ref={ref} className={cn(LoadingVariants({ size, variant, color }), className)} />;
-  },
+  }
 );
 
 Loading.displayName = 'Loading';

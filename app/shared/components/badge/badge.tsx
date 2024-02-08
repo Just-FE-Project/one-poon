@@ -5,18 +5,18 @@ import { classVarianceAuthority, cn, type VariantProps } from '@/shared/utils/cl
 const BadgeVariants = classVarianceAuthority('badge medium-12-cap', {
   variants: {
     variant: {
-      outline: 'badge-outline',
+      outline: 'badge-outline'
     },
     size: {
       xs: 'badge-xs',
       sm: 'badge-sm',
       md: 'badge-md',
-      lg: 'badge-lg',
-    },
+      lg: 'badge-lg'
+    }
   },
   defaultVariants: {
-    size: 'lg',
-  },
+    size: 'lg'
+  }
 });
 
 interface IProps extends PropsWithChildren<VariantProps<typeof BadgeVariants>> {

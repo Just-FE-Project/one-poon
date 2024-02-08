@@ -10,17 +10,17 @@ const ButtonVariants = classVarianceAuthority('btn', {
       md: 'btn-md',
       lg: 'btn-lg',
       wide: 'btn-wide',
-      block: 'btn-block',
+      block: 'btn-block'
     },
     shape: {
       square: 'btn-square',
-      circle: 'btn-circle',
-    },
+      circle: 'btn-circle'
+    }
   },
   defaultVariants: {
     size: 'wide',
-    shape: 'square',
-  },
+    shape: 'square'
+  }
 });
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof ButtonVariants> {}

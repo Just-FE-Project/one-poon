@@ -6,7 +6,7 @@ import {
   componentShapes,
   componentSizes,
   componentStatuses,
-  DEFAULT_THEMES,
+  DEFAULT_THEMES
 } from '@/shared/constants';
 
 export type DataTheme = (typeof DEFAULT_THEMES)[number] | string;

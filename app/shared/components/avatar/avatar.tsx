@@ -6,7 +6,7 @@ import {
   isValidElement,
   PropsWithChildren,
   ReactElement,
-  ReactNode,
+  ReactNode
 } from 'react';
 
 import { ComponentColor, ComponentShape, ComponentSize } from '@/shared/types/component';
@@ -15,7 +15,7 @@ import { classVarianceAuthority, cn, VariantProps } from '@/shared/utils/classNa
 const ImageVariants = classVarianceAuthority('', {
   variants: {
     border: {
-      true: 'ring ring-offset-base-100 ring-offset-2',
+      true: 'ring ring-offset-base-100 ring-offset-2'
     },
     borderColor: {
       accent: 'ring-accent',
@@ -25,22 +25,22 @@ const ImageVariants = classVarianceAuthority('', {
       primary: 'ring-primary',
       secondary: 'ring-secondary',
       success: 'ring-success',
-      warning: 'ring-warning',
+      warning: 'ring-warning'
     },
     shape: {
       square: 'rounded-btn',
-      circle: 'rounded-full',
+      circle: 'rounded-full'
     },
     size: {
       lg: 'w-32 h-32',
       md: 'w-24 h-24',
       sm: 'w-14 h-14',
-      xs: 'w-10 h-10',
-    },
+      xs: 'w-10 h-10'
+    }
   },
   defaultVariants: {
-    size: 'md',
-  },
+    size: 'md'
+  }
 });
 
 const PlaceholderVariants = classVarianceAuthority('', {
@@ -53,10 +53,10 @@ const PlaceholderVariants = classVarianceAuthority('', {
       primary: 'bg-primary text-primary-content',
       secondary: 'bg-secondary text-secondary-content',
       success: 'bg-success text-success-content',
-      warning: 'bg-warning text-warning-content',
+      warning: 'bg-warning text-warning-content'
     },
     border: {
-      true: 'ring ring-offset-base-100 ring-offset-2',
+      true: 'ring ring-offset-base-100 ring-offset-2'
     },
     borderColor: {
       accent: 'ring-accent',
@@ -66,22 +66,22 @@ const PlaceholderVariants = classVarianceAuthority('', {
       primary: 'ring-primary',
       secondary: 'ring-secondary',
       success: 'ring-success',
-      warning: 'ring-warning',
+      warning: 'ring-warning'
     },
     shape: {
       square: 'rounded-btn',
-      circle: 'rounded-full',
+      circle: 'rounded-full'
     },
     size: {
       lg: 'w-32 h-32 text-3xl',
       md: 'w-24 h-24 text-xl',
       sm: 'w-14 h-14',
-      xs: 'w-10 h-10',
-    },
+      xs: 'w-10 h-10'
+    }
   },
   defaultVariants: {
-    size: 'md',
-  },
+    size: 'md'
+  }
 });
 
 interface IProps
@@ -142,12 +142,11 @@ export const Avatar = forwardRef<HTMLDivElement, IProps>(
                 border,
                 borderColor,
                 shape,
-                size,
+                size
               }),
               className
             )}
-            style={customImgDimension}
-          >
+            style={customImgDimension}>
             <img src={src} />
           </div>
         );
@@ -161,12 +160,11 @@ export const Avatar = forwardRef<HTMLDivElement, IProps>(
                 border,
                 borderColor,
                 shape,
-                size,
+                size
               }),
               className
             )}
-            style={customImgDimension}
-          >
+            style={customImgDimension}>
             <span>{letters ? letters : children}</span>
           </div>
         );
@@ -179,11 +177,11 @@ export const Avatar = forwardRef<HTMLDivElement, IProps>(
               border,
               borderColor,
               shape,
-              size,
+              size
             }),
             firstChild.props.className
           ),
-          style: { ...customImgDimension, ...firstChild.props.style },
+          style: { ...customImgDimension, ...firstChild.props.style }
         });
       } else {
         return (
@@ -192,10 +190,9 @@ export const Avatar = forwardRef<HTMLDivElement, IProps>(
               border,
               borderColor,
               shape,
-              size,
+              size
             })}
-            style={customImgDimension}
-          >
+            style={customImgDimension}>
             {children}
           </div>
         );
@@ -207,8 +204,7 @@ export const Avatar = forwardRef<HTMLDivElement, IProps>(
         aria-label="Avatar photo"
         {...props}
         className={cn({ avatar: true, online: online, offline: offline, placeholder: !src })}
-        ref={ref}
-      >
+        ref={ref}>
         {renderAvatarContents()}
       </div>
     );

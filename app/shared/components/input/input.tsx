@@ -6,19 +6,19 @@ const InputVariants = classVarianceAuthority('input', {
   variants: {
     variant: {
       bordered: 'input-bordered',
-      ghost: 'input-ghost',
+      ghost: 'input-ghost'
     },
     size: {
       xs: 'input-xs',
       sm: 'input-sm',
       md: 'input-md',
-      lg: 'input-lg',
-    },
+      lg: 'input-lg'
+    }
   },
   defaultVariants: {
     size: 'md',
-    variant: 'bordered',
-  },
+    variant: 'bordered'
+  }
 });
 
 interface IProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>, VariantProps<typeof InputVariants> {

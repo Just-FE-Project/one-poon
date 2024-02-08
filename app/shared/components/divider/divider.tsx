@@ -30,7 +30,7 @@ const Divider = forwardRef<HTMLDivElement, DividerProps>(
       'divider-info': color === 'info',
       'divider-error': color === 'error',
       'divider-start': start,
-      'divider-end': end,
+      'divider-end': end
     });
 
     return (

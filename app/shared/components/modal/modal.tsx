@@ -7,12 +7,12 @@ const ModalVariants = classVarianceAuthority('modal', {
     position: {
       top: 'modal-top',
       bottom: 'modal-bottom',
-      middle: 'modal-middle',
-    },
+      middle: 'modal-middle'
+    }
   },
   defaultVariants: {
-    position: 'middle',
-  },
+    position: 'middle'
+  }
 });
 
 interface IProps extends PropsWithChildren<VariantProps<typeof ModalVariants>> {

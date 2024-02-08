@@ -1,21 +1,17 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./app/**/*.{js,jsx,ts,tsx}', './.storybook/**/*.{js,jsx,ts,tsx,mdx}'],
   theme: {
     extend: {
       height: {
-        screen: 'calc(var(--vh)*100)',
+        screen: 'calc(var(--vh)*100)'
       },
       minHeight: {
-        screen: 'calc(var(--vh)*100)',
+        screen: 'calc(var(--vh)*100)'
       },
       maxHeight: {
-        screen: 'calc(var(--vh)*100)',
+        screen: 'calc(var(--vh)*100)'
       },
       backgroundColor: {
         default: 'var(--color-basic-default)',
@@ -57,7 +53,7 @@ const config: Config = {
         'green-normal': 'var(--color-green500)',
         'blue-normal': 'var(--color-blue500)',
 
-        'darkblue-hovered': 'var(--color-darkblue5)',
+        'darkblue-hovered': 'var(--color-darkblue5)'
       },
       colors: {
         'gray-default': 'var(--text-gray-default)',
@@ -77,7 +73,7 @@ const config: Config = {
         'basic-b': 'var(--color-basic-b)',
         'basic-b-alt': 'var(--text-basic-b-alt)',
         'red-normal': 'var(--color-red500)',
-        'green-normal': 'var(--color-green500)',
+        'green-normal': 'var(--color-green500)'
       },
       borderColor: {
         'gray-normal': 'var(--border-gray-normal)',
@@ -91,10 +87,13 @@ const config: Config = {
         default: 'var(--border-default)',
         'primary-normal': 'var(--color-primary500)',
         'red-normal': 'var(--color-red500)',
-        'orange-normal': 'var(--color-orange500)',
-      },
-    },
+        'orange-normal': 'var(--color-orange500)'
+      }
+    }
   },
-  plugins: [require('daisyui')],
+  daisyui: {
+    themes: ['pastel']
+  },
+  plugins: [require('daisyui')]
 };
 export default config;
