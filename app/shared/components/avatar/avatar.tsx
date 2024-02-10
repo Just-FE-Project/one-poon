@@ -10,86 +10,9 @@ import {
 } from 'react';
 
 import { ComponentColor, ComponentShape, ComponentSize } from '@/shared/types/component';
-import { classVarianceAuthority, cn, VariantProps } from '@/shared/utils/className';
+import { cn } from '@/shared/utils/className';
 
-const ImageVariants = classVarianceAuthority('', {
-  variants: {
-    border: {
-      true: 'ring ring-offset-base-100 ring-offset-2'
-    },
-    borderColor: {
-      accent: 'ring-accent',
-      error: 'ring-error',
-      info: 'ring-info',
-      neutral: 'ring-neutral',
-      primary: 'ring-primary',
-      secondary: 'ring-secondary',
-      success: 'ring-success',
-      warning: 'ring-warning'
-    },
-    shape: {
-      square: 'rounded-btn',
-      circle: 'rounded-full'
-    },
-    size: {
-      lg: 'w-32 h-32',
-      md: 'w-24 h-24',
-      sm: 'w-14 h-14',
-      xs: 'w-10 h-10'
-    }
-  },
-  defaultVariants: {
-    size: 'md'
-  }
-});
-
-const PlaceholderVariants = classVarianceAuthority('', {
-  variants: {
-    color: {
-      accent: 'bg-accent text-accent-content',
-      error: 'bg-error text-error-content',
-      info: 'bg-info text-info-content',
-      neutral: 'bg-neutral text-neutral-content',
-      primary: 'bg-primary text-primary-content',
-      secondary: 'bg-secondary text-secondary-content',
-      success: 'bg-success text-success-content',
-      warning: 'bg-warning text-warning-content'
-    },
-    border: {
-      true: 'ring ring-offset-base-100 ring-offset-2'
-    },
-    borderColor: {
-      accent: 'ring-accent',
-      error: 'ring-error',
-      info: 'ring-info',
-      neutral: 'ring-neutral',
-      primary: 'ring-primary',
-      secondary: 'ring-secondary',
-      success: 'ring-success',
-      warning: 'ring-warning'
-    },
-    shape: {
-      square: 'rounded-btn',
-      circle: 'rounded-full'
-    },
-    size: {
-      lg: 'w-32 h-32 text-3xl',
-      md: 'w-24 h-24 text-xl',
-      sm: 'w-14 h-14',
-      xs: 'w-10 h-10'
-    }
-  },
-  defaultVariants: {
-    size: 'md'
-  }
-});
-
-interface IProps
-  extends PropsWithChildren<
-    Omit<HTMLAttributes<HTMLDivElement>, 'color'> &
-      VariantProps<typeof ImageVariants> &
-      VariantProps<typeof PlaceholderVariants>
-  > {
+interface IProps extends PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, 'color'>> {
   className?: string;
   src?: string;
   letters?: string;
@@ -114,7 +37,7 @@ const isSingleStringChild = (children?: ReactNode) => {
 export const Avatar = forwardRef<HTMLDivElement, IProps>(
   (
     {
-      size,
+      size = 'md',
       src,
       letters,
       shape,
@@ -130,69 +53,89 @@ export const Avatar = forwardRef<HTMLDivElement, IProps>(
     },
     ref
   ) => {
+    const containerClasses = cn('avatar', className, {
+      online: online,
+      offline: offline,
+      placeholder: !src
+    });
+
+    const imgClasses = cn(innerClassName, {
+      'ring ring-offset-base-100 ring-offset-2': border,
+      'ring-accent': borderColor === 'accent',
+      'ring-error': borderColor === 'error',
+      'ring-info': borderColor === 'info',
+      'ring-neutral': borderColor === 'neutral',
+      'ring-primary': borderColor === 'primary',
+      'ring-secondary': borderColor === 'secondary',
+      'ring-success': borderColor === 'success',
+      'ring-warning': borderColor === 'warning',
+      'rounded-btn': shape === 'square',
+      'rounded-full': shape === 'circle',
+      'w-32 h-32': size === 'lg',
+      'w-24 h-24': size === 'md',
+      'w-14 h-14': size === 'sm',
+      'w-10 h-10': size === 'xs'
+    });
+
+    const placeholderClasses = cn(innerClassName, {
+      'bg-neutral-focus': !color,
+      'text-neutral-content': !color || color === 'neutral',
+      'bg-accent': color === 'accent',
+      'bg-error': color === 'error',
+      'bg-info': color === 'info',
+      'bg-neutral': color === 'neutral',
+      'bg-primary': color === 'primary',
+      'bg-secondary': color === 'secondary',
+      'bg-success': color === 'success',
+      'bg-warning': color === 'warning',
+      'text-accent-content': color === 'accent',
+      'text-error-content': color === 'error',
+      'text-info-content': color === 'info',
+      'text-primary-content': color === 'primary',
+      'text-secondary-content': color === 'secondary',
+      'text-success-content': color === 'success',
+      'text-warning-content': color === 'warning',
+      'ring ring-offset-base-100 ring-offset-2': border,
+      'ring-accent': borderColor === 'accent',
+      'ring-error': borderColor === 'error',
+      'ring-info': borderColor === 'info',
+      'ring-neutral': borderColor === 'neutral',
+      'ring-primary': borderColor === 'primary',
+      'ring-secondary': borderColor === 'secondary',
+      'ring-success': borderColor === 'success',
+      'ring-warning': borderColor === 'warning',
+      'rounded-btn': shape === 'square',
+      'rounded-full': shape === 'circle',
+      'w-32 h-32 text-3xl': size === 'lg',
+      'w-24 h-24 text-xl': size === 'md',
+      'w-14 h-14': size === 'sm',
+      'w-10 h-10': size === 'xs'
+    });
+
     const customImgDimension = typeof size === 'number' ? { width: size, height: size } : {};
 
     const renderAvatarContents = () => {
       if (src) {
         return (
-          <div
-            className={cn(
-              innerClassName,
-              ImageVariants({
-                border,
-                borderColor,
-                shape,
-                size
-              }),
-              className
-            )}
-            style={customImgDimension}>
-            <img src={src} />
+          <div className={imgClasses} style={customImgDimension}>
+            <img src={src} alt="프로필 이미지" />
           </div>
         );
       } else if (letters || isSingleStringChild(children)) {
         return (
-          <div
-            className={cn(
-              innerClassName,
-              PlaceholderVariants({
-                color,
-                border,
-                borderColor,
-                shape,
-                size
-              }),
-              className
-            )}
-            style={customImgDimension}>
+          <div className={placeholderClasses} style={customImgDimension}>
             <span>{letters ? letters : children}</span>
           </div>
         );
       } else if (Children.count(children) === 1) {
-        console.log('222');
         const firstChild = Children.only(children) as ReactElement;
         return cloneElement(firstChild, {
-          className: cn(
-            ImageVariants({
-              border,
-              borderColor,
-              shape,
-              size
-            }),
-            firstChild.props.className
-          ),
+          className: cn(imgClasses, firstChild.props.className),
           style: { ...customImgDimension, ...firstChild.props.style }
         });
       } else {
         return (
-          <div
-            className={ImageVariants({
-              border,
-              borderColor,
-              shape,
-              size
-            })}
-            style={customImgDimension}>
+          <div className={imgClasses} style={customImgDimension}>
             {children}
           </div>
         );
@@ -200,11 +143,7 @@ export const Avatar = forwardRef<HTMLDivElement, IProps>(
     };
 
     return (
-      <div
-        aria-label="Avatar photo"
-        {...props}
-        className={cn({ avatar: true, online: online, offline: offline, placeholder: !src })}
-        ref={ref}>
+      <div aria-label="Avatar photo" {...props} className={containerClasses} ref={ref}>
         {renderAvatarContents()}
       </div>
     );

@@ -32,7 +32,7 @@ export default function Home() {
 
       <Avatar src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
       <br />
-      <Avatar letters="user1" color="primary" border online shape="circle" />
+      <Avatar letters="user1" color="primary" online shape="circle" />
       <br />
       <Avatar color="secondary" border offline shape="square">
         <span>user2</span>
@@ -40,11 +40,11 @@ export default function Home() {
       <Divider />
 
       {/* 배지 테스트 */}
-      <Badge className="badge-secondary">배지</Badge>
+      <Badge color="primary">배지</Badge>
       <br />
       <Button>
         Inbox
-        <Badge className="badge-secondary">배지</Badge>
+        <Badge color="info">배지</Badge>
       </Button>
       <Divider />
       {/* 모달 사용 테스트 */}

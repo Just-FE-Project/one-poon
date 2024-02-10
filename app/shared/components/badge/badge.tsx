@@ -1,30 +1,36 @@
-import { PropsWithChildren } from 'react';
+import { HTMLAttributes } from 'react';
 
-import { classVarianceAuthority, cn, type VariantProps } from '@/shared/utils/className';
+import { ComponentColor, ComponentSize } from '@/shared/types/component';
+import { cn } from '@/shared/utils/className';
 
-const BadgeVariants = classVarianceAuthority('badge medium-12-cap', {
-  variants: {
-    variant: {
-      outline: 'badge-outline'
-    },
-    size: {
-      xs: 'badge-xs',
-      sm: 'badge-sm',
-      md: 'badge-md',
-      lg: 'badge-lg'
-    }
-  },
-  defaultVariants: {
-    size: 'lg'
-  }
-});
-
-interface IProps extends PropsWithChildren<VariantProps<typeof BadgeVariants>> {
-  className?: string;
+interface IProps extends HTMLAttributes<HTMLSpanElement> {
+  variant?: 'outline';
+  outline?: boolean;
+  size?: ComponentSize;
+  color?: ComponentColor;
+  responsive?: boolean;
 }
 
-const Badge = ({ variant, size, className, children }: IProps) => {
-  return <span className={cn(BadgeVariants({ variant, size }), className)}>{children}</span>;
+const Badge = ({ variant, size, color, outline, responsive, className, children }: IProps) => {
+  const classes = cn('badge', className, {
+    'badge-lg': size === 'lg',
+    'badge-md': size === 'md',
+    'badge-sm': size === 'sm',
+    'badge-xs': size === 'xs',
+    'badge-outline': variant === 'outline' || outline,
+    'badge-neutral': color === 'neutral',
+    'badge-primary': color === 'primary',
+    'badge-secondary': color === 'secondary',
+    'badge-accent': color === 'accent',
+    'badge-ghost': color === 'ghost',
+    'badge-info': color === 'info',
+    'badge-success': color === 'success',
+    'badge-warning': color === 'warning',
+    'badge-error': color === 'error',
+    'badge-xs md:badge-sm lg:badge-md xl:badge-lg': responsive
+  });
+
+  return <span className={classes}>{children}</span>;
 };
 
 export default Badge;
