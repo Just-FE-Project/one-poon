@@ -1,12 +1,13 @@
 'use client';
 
-import { Button } from '@/shared/components/button/button';
-import { Loading } from '@/shared/components/loading/loading';
+import { useState } from 'react';
+
 import { Avatar } from '@/shared/components/avatar/avatar';
 import Badge from '@/shared/components/badge/badge';
-import { useState } from 'react';
-import { Modal } from '@/shared/components/modal/modal';
+import { Button } from '@/shared/components/button/button';
 import Divider from '@/shared/components/divider/divider';
+import { Loading } from '@/shared/components/loading/loading';
+import { Modal } from '@/shared/components/modal/modal';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,10 +15,12 @@ export default function Home() {
   return (
     <main>
       {/* 버튼테스트 */}
-      <Button className="btn-primary">Primary</Button>
+      <Button size="wide" className="btn-primary" disabled>
+        Primary
+      </Button>
       <Divider />
       {/* 로딩 스피너 테스트 */}
-      <Loading color={'primary'} size={'lg'} />
+      <Loading color={'neutral'} size={'lg'} />
       <Loading variant={'ball'} color={'secondary'} size={'lg'} />
       <br />
       <Loading variant={'dots'} size={'lg'} />

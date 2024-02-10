@@ -1,50 +1,39 @@
 import { forwardRef, HTMLAttributes } from 'react';
 
-import { classVarianceAuthority, cn, VariantProps } from '@/shared/utils/className';
+import { ComponentColor, ComponentSize } from '@/shared/types/component';
+import { cn } from '@/shared/utils/className';
 
-const LoadingVariants = classVarianceAuthority('loading', {
-  variants: {
-    variant: {
-      spinner: 'loading-spinner ',
-      dots: 'loading-dots ',
-      ring: 'loading-ring ',
-      ball: 'loading-ball ',
-      bars: 'loading-bars ',
-      infinity: 'loading-infinity '
-    },
-
-    size: {
-      xs: 'loading-xs',
-      sm: 'loading-sm',
-      md: 'loading-md',
-      lg: 'loading-lg'
-    },
-
-    color: {
-      primary: 'text-primary',
-      secondary: 'text-secondary',
-      accent: 'text-accent',
-      info: 'text-info',
-      success: 'text-success',
-      warning: 'text-warning',
-      error: 'text-error',
-      ghost: 'text-ghost'
-    }
-  },
-
-  defaultVariants: {
-    variant: 'spinner',
-    size: 'md'
-  }
-});
-
-interface IProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color'>, VariantProps<typeof LoadingVariants> {
-  className?: string;
+interface IProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'color'> {
+  variant?: 'spinner' | 'dots' | 'ring' | 'ball' | 'bars' | 'infinity';
+  size?: ComponentSize;
+  color?: ComponentColor;
 }
 
 export const Loading = forwardRef<HTMLSpanElement, IProps>(
-  ({ size, variant = 'spinner', color, className, ...props }, ref) => {
-    return <span {...props} ref={ref} className={cn(LoadingVariants({ size, variant, color }), className)} />;
+  ({ size = 'md', variant = 'spinner', color, className, ...props }, ref) => {
+    const classes = cn('loading', className, {
+      'loading-spinner': variant === 'spinner',
+      'loading-dots': variant === 'dots',
+      'loading-ring': variant === 'ring',
+      'loading-ball': variant === 'ball',
+      'loading-bars': variant === 'bars',
+      'loading-infinity': variant === 'infinity',
+      'loading-xs': size === 'xs',
+      'loading-sm': size === 'sm',
+      'loading-md': size === 'md',
+      'loading-lg': size === 'lg',
+      'text-primary': color === 'primary',
+      'text-secondary': color === 'secondary',
+      'text-accent': color === 'accent',
+      'text-info': color === 'info',
+      'text-success': color === 'success',
+      'text-warning': color === 'warning',
+      'text-error': color === 'error',
+      'text-ghost': color === 'ghost',
+      'text-neutral': color === 'neutral'
+    });
+
+    return <span {...props} ref={ref} className={classes} />;
   }
 );
 

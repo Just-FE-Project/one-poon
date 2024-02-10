@@ -1,33 +1,27 @@
 import { ButtonHTMLAttributes } from 'react';
 
-import { classVarianceAuthority, cn, type VariantProps } from '@/shared/utils/className';
+import { ComponentSize } from '@/shared/types/component';
+import { cn } from '@/shared/utils/className';
 
-const ButtonVariants = classVarianceAuthority('btn', {
-  variants: {
-    size: {
-      xs: 'btn-xs',
-      sm: 'btn-sm',
-      md: 'btn-md',
-      lg: 'btn-lg',
-      wide: 'btn-wide',
-      block: 'btn-block'
-    },
-    shape: {
-      square: 'btn-square',
-      circle: 'btn-circle'
-    }
-  },
-  defaultVariants: {
-    size: 'wide',
-    shape: 'square'
-  }
-});
-
-interface IProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof ButtonVariants> {}
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: ComponentSize | 'wide' | 'block';
+  shape?: 'square' | 'circle';
+}
 
 export const Button = ({ children, onClick, className, size, shape, ...props }: IProps) => {
+  const classes = cn('btn', className, {
+    'btn-xs': size === 'xs',
+    'btn-sm': size === 'sm',
+    'btn-md': size === 'md',
+    'btn-lg': size === 'lg',
+    'btn-wide': size === 'wide',
+    'btn-block': size === 'block',
+    'btn-square': shape === 'square',
+    'btn-circle': shape === 'circle'
+  });
+
   return (
-    <button onClick={onClick} className={cn(ButtonVariants({ size, shape }), className)} {...props}>
+    <button onClick={onClick} className={classes} {...props}>
       {children}
     </button>
   );
