@@ -1,57 +1,45 @@
-import { PropsWithChildren } from 'react';
+import { forwardRef, PropsWithChildren } from 'react';
 
-import { classVarianceAuthority, cn, type VariantProps } from '@/shared/utils/className';
-
-const ModalVariants = classVarianceAuthority('modal', {
-  variants: {
-    position: {
-      top: 'modal-top',
-      bottom: 'modal-bottom',
-      middle: 'modal-middle'
-    }
-  },
-  defaultVariants: {
-    position: 'middle'
-  }
-});
-
-interface IProps extends PropsWithChildren<VariantProps<typeof ModalVariants>> {
-  isOpen: boolean;
+import { cn } from '@/shared/utils/className';
+interface IProps extends PropsWithChildren {
   className?: string;
+  position?: 'top' | 'bottom' | 'middle';
+  open?: boolean;
 }
-
-export const Modal = ({ children, isOpen, position, className }: IProps) => {
-  if (!isOpen) return null;
-
-  return (
-    <dialog className={cn(ModalVariants({ position }), className)} open>
-      <div className="modal-box">{children}</div>
-    </dialog>
-  );
-};
-
+const ModalComponent = forwardRef<HTMLDialogElement, IProps>(
+  ({ children, open, position = 'middle', className }, ref) => {
+    const classes = cn('modal', className, {
+      'modal-top': position === 'top',
+      'modal-bottom': position === 'bottom',
+      'modal-middle': position === 'middle',
+      'modal-open': open
+    });
+    return (
+      <dialog aria-label="Modal" open={open} aria-modal={open} className={classes} ref={ref}>
+        <div className="modal-box">{children}</div>
+      </dialog>
+    );
+  }
+);
+ModalComponent.displayName = 'ModalComponent';
 interface IModalHeaderProps extends PropsWithChildren {
   className?: string;
 }
-
 const ModalHeader = ({ className, children }: IModalHeaderProps) => (
   <h3 className={cn('text-lg font-bold', className)}>{children}</h3>
 );
-
 interface IModalBodyProps extends PropsWithChildren {
   className?: string;
 }
-
 const ModalBody = ({ className, children }: IModalBodyProps) => <p className={cn('py-4', className)}>{children}</p>;
-
 interface IModalActionsProps extends PropsWithChildren {
   className?: string;
 }
-
 const ModalActions = ({ className, children }: IModalActionsProps) => (
   <div className={cn('modal-action', className)}>{children}</div>
 );
-
-Modal.Header = ModalHeader;
-Modal.Body = ModalBody;
-Modal.Actions = ModalActions;
+export const Modal = Object.assign(ModalComponent, {
+  Header: ModalHeader,
+  Body: ModalBody,
+  Actions: ModalActions
+});

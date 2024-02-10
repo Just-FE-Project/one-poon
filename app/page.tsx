@@ -51,7 +51,7 @@ export default function Home() {
       <button className="btn" onClick={() => setIsModalOpen(true)}>
         모달 열기
       </button>
-      <Modal isOpen={isModalOpen} position="middle">
+      <Modal open={isModalOpen} position="middle">
         <Modal.Header>모달 제목</Modal.Header>
         <Modal.Body>모달 내용</Modal.Body>
         <Modal.Actions>
