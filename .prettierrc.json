@@ -4,6 +4,7 @@
   "bracketSameLine": true,
   "arrowParens": "avoid",
   "printWidth": 120,
+  "trailingComma": "none",
   "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-classnames", "prettier-plugin-merge"],
   "customAttributes": ["className"],
   "customFunctions": ["classNames"]
