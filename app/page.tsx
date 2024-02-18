@@ -15,10 +15,10 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [chipItems, setChipItems] = useState([
     { text: 'Chip 1', isActive: false },
-    { text: 'Chip 2', isActive: true },
+    { text: 'Chip 2', isActive: false },
     { text: 'Chip 3', isActive: false },
-    { text: 'Chip 4', isActive: true },
-    { text: 'Chip 5', isActive: true },
+    { text: 'Chip 4', isActive: false },
+    { text: 'Chip 5', isActive: false },
     { text: 'Chip 6', isActive: false },
     { text: 'Chip 7', isActive: false },
     { text: 'Chip 8', isActive: false },
