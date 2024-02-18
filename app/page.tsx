@@ -92,7 +92,13 @@ export default function Home() {
           <div className="artboard artboard-demo phone-1 justify-start py-12">
             <Chips>
               {chipItems.map((item, index) => (
-                <Chip item={item} key={`${item.text}-${index}`} onChipClick={() => handleChipClick(index)} />
+                <Chip
+                  item={item}
+                  key={`${item.text}-${index}`}
+                  color="neutral"
+                  size="sm"
+                  onChipClick={() => handleChipClick(index)}
+                />
               ))}
             </Chips>
           </div>
