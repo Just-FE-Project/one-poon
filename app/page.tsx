@@ -9,8 +9,32 @@ import Divider from '@/shared/components/divider/divider';
 import { Loading } from '@/shared/components/loading/loading';
 import { Modal } from '@/shared/components/modal/modal';
 
+import { Chip, Chips } from './shared/components/chips/chips';
+
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [chipItems, setChipItems] = useState([
+    { text: 'Chip 1', isActive: false },
+    { text: 'Chip 2', isActive: true },
+    { text: 'Chip 3', isActive: false },
+    { text: 'Chip 4', isActive: true },
+    { text: 'Chip 5', isActive: true },
+    { text: 'Chip 6', isActive: false },
+    { text: 'Chip 7', isActive: false },
+    { text: 'Chip 8', isActive: false },
+    { text: 'Chip 9', isActive: false },
+    { text: 'Chip 10', isActive: false }
+  ]);
+
+  const handleChipClick = (index: number) => {
+    const newChipItems = chipItems.map((item, idx) => {
+      if (idx === index) {
+        return { ...item, isActive: !item.isActive };
+      }
+      return item;
+    });
+    setChipItems(newChipItems);
+  };
 
   return (
     <main>
@@ -60,6 +84,20 @@ export default function Home() {
           </button>
         </Modal.Actions>
       </Modal>
+      <Divider />
+      {/* Chips 테스트 */}
+      <div className="mockup-phone">
+        <div className="camera"></div>
+        <div className="display">
+          <div className="artboard artboard-demo phone-1 justify-start py-12">
+            <Chips>
+              {chipItems.map((item, index) => (
+                <Chip item={item} key={`${item.text}-${index}`} onChipClick={() => handleChipClick(index)} />
+              ))}
+            </Chips>
+          </div>
+        </div>
+      </div>
       <Divider />
     </main>
   );
