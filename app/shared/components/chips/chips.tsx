@@ -1,5 +1,4 @@
-import { HTMLAttributes, memo } from 'react';
-import { useRef } from 'react';
+import { HTMLAttributes, memo, useRef } from 'react';
 import { useDraggable } from 'react-use-draggable-scroll';
 
 import { ComponentColor, ComponentSize } from '@/shared/types/component';
@@ -14,7 +13,7 @@ interface IChipItem {
 
 interface IChipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'color'> {
   item: IChipItem;
-  onChipClick: () => void;
+  onChipClick?: () => void;
   size?: ComponentSize;
   color?: TChipColor;
 }
@@ -45,10 +44,10 @@ const getChipClasses = (
   const baseClasses = 'flex items-center justify-center border rounded-full font-medium cursor-pointer';
 
   return cn(baseClasses, className, {
-    'mx-0.5 px-2 py-0.5 text-xs': size === 'xs',
-    'mx-1 px-3 py-1 text-sm': size === 'sm',
-    'mx-1.5 px-5 py-2 text-md': size === 'md',
-    'mx-2 px-7 py-3 text-lg': size === 'lg',
+    'mr-1 px-2 py-0.5 text-xs': size === 'xs',
+    'mr-2 px-3 py-1 text-sm': size === 'sm',
+    'mr-3 px-5 py-2 text-md': size === 'md',
+    'mr-4 px-7 py-3 text-lg': size === 'lg',
     'border-primary': color === 'primary',
     'border-secondary': color === 'secondary',
     'border-accent': color === 'accent',

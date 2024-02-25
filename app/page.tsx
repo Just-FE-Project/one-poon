@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { Avatar } from '@/shared/components/avatar/avatar';
@@ -9,10 +10,13 @@ import Divider from '@/shared/components/divider/divider';
 import { Loading } from '@/shared/components/loading/loading';
 import { Modal } from '@/shared/components/modal/modal';
 
+import WriteModal from './list/WriteModal';
 import { Chip, Chips } from './shared/components/chips/chips';
+import { ProgressBar } from './shared/components/progress-bar/progressBar';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isWriteModalOpen, setIsWriteModalOpen] = useState(false);
   const [chipItems, setChipItems] = useState([
     { text: 'Chip 1', isActive: false },
     { text: 'Chip 2', isActive: false },
@@ -34,6 +38,11 @@ export default function Home() {
       return item;
     });
     setChipItems(newChipItems);
+  };
+
+  // 다빈 - 지웅이랑 합치기 전이라 버튼 임시로 만들어서 뷰 그림
+  const handleWriteModal = () => {
+    setIsWriteModalOpen(false);
   };
 
   return (
@@ -75,6 +84,7 @@ export default function Home() {
       <button className="btn" onClick={() => setIsModalOpen(true)}>
         모달 열기
       </button>
+      <Link href="/card-detail">카드 상세</Link>
       <Modal open={isModalOpen} position="middle">
         <Modal.Header>모달 제목</Modal.Header>
         <Modal.Body>모달 내용</Modal.Body>
@@ -105,6 +115,14 @@ export default function Home() {
         </div>
       </div>
       <Divider />
+
+      <div>dabin test</div>
+
+      <button className="btn" onClick={() => setIsWriteModalOpen(true)}>
+        모달 열기
+      </button>
+      <WriteModal open={isWriteModalOpen} onClick={handleWriteModal} />
+
     </main>
   );
 }

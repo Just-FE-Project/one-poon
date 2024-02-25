@@ -15,7 +15,7 @@ export const Main = ({ children }: IProps) => {
   return (
     <main
       className={cn(
-        'relative mx-auto min-h-screen w-screen max-w-[768px] px-[20px]',
+        'relative mx-auto min-h-screen w-screen max-w-[768px]',
         deviceType === 'desktop' ? 'border-l border-r border-gray-default' : ''
       )}>
       {children}
