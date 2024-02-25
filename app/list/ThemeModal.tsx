@@ -12,7 +12,6 @@ const ThemeModal = ({ open, onClick }: Props) => {
       <Modal.Header>
         게시글의 주제를 선택해주세요
         <span onClick={onClick} className="cursor-pointer">
-          {' '}
           X
         </span>
       </Modal.Header>
