@@ -88,6 +88,9 @@ const config: Config = {
         'primary-normal': 'var(--color-primary500)',
         'red-normal': 'var(--color-red500)',
         'orange-normal': 'var(--color-orange500)'
+      },
+      margin: {
+        'm-auto': '0 auto'
       }
     }
   },

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { Avatar } from '@/shared/components/avatar/avatar';
@@ -11,6 +12,7 @@ import { Modal } from '@/shared/components/modal/modal';
 
 import WriteModal from './list/WriteModal';
 import { Chip, Chips } from './shared/components/chips/chips';
+import { ProgressBar } from './shared/components/progress-bar/progressBar';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -82,6 +84,7 @@ export default function Home() {
       <button className="btn" onClick={() => setIsModalOpen(true)}>
         모달 열기
       </button>
+      <Link href="/card-detail">카드 상세</Link>
       <Modal open={isModalOpen} position="middle">
         <Modal.Header>모달 제목</Modal.Header>
         <Modal.Body>모달 내용</Modal.Body>
@@ -112,12 +115,14 @@ export default function Home() {
         </div>
       </div>
       <Divider />
+
       <div>dabin test</div>
 
       <button className="btn" onClick={() => setIsWriteModalOpen(true)}>
         모달 열기
       </button>
       <WriteModal open={isWriteModalOpen} onClick={handleWriteModal} />
+
     </main>
   );
 }
