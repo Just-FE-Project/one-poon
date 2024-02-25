@@ -5,9 +5,10 @@ interface IProps extends PropsWithChildren {
   className?: string;
   position?: 'top' | 'bottom' | 'middle';
   open?: boolean;
+  boxStyle?: string;
 }
 const ModalComponent = forwardRef<HTMLDialogElement, IProps>(
-  ({ children, open, position = 'middle', className }, ref) => {
+  ({ children, open, position = 'middle', className, boxStyle }, ref) => {
     const classes = cn('modal', className, {
       'modal-top': position === 'top',
       'modal-bottom': position === 'bottom',
@@ -16,7 +17,7 @@ const ModalComponent = forwardRef<HTMLDialogElement, IProps>(
     });
     return (
       <dialog aria-label="Modal" open={open} aria-modal={open} className={classes} ref={ref}>
-        <div className="modal-box">{children}</div>
+        <div className={`modal-box ${boxStyle}`}>{children}</div>
       </dialog>
     );
   }
