@@ -1,5 +1,4 @@
-import { HTMLAttributes, memo } from 'react';
-import { useRef } from 'react';
+import { HTMLAttributes, memo, useRef } from 'react';
 import { useDraggable } from 'react-use-draggable-scroll';
 
 import { ComponentColor, ComponentSize } from '@/shared/types/component';
