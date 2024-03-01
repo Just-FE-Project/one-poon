@@ -1,18 +1,21 @@
 'use client';
 
-import { Header } from './components/layout/header';
-import { Layout } from './components/layout/layout';
-import { Cards } from './features/card/cards';
-import { Categories } from './features/categories';
+import { Header } from '@/home/components/layout/header';
+import { Cards } from '@/home/features/card/cards';
+import { Categories } from '@/home/features/categories';
+import { WriteBtn } from '@/home/features/WriteBtn';
 
 export default function Page() {
   return (
-    <div>
-      <Header />
-      <Layout>
-        <Categories />
-        <Cards />
-      </Layout>
-    </div>
+    <>
+      <div>
+        <Header />
+        <div className="mt-[100px]">
+          <Categories />
+          <Cards />
+        </div>
+        <WriteBtn />
+      </div>
+    </>
   );
 }
