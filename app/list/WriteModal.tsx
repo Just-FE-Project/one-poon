@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
+import cameraIcon from '@/assets/camera.svg';
+import rightArrow from '@/assets/right-arrow.svg';
 import { AppBar } from '@/shared/components/app-bar/appBar';
 import { Modal } from '@/shared/components/modal/modal';
 import { XIcon } from '@/shared/components/x-icon/x-icon';
 
-import cameraIcon from '../../public/camera.svg';
-import rightArrow from '../../public/right-arrow.svg';
 import ThemeModal from './ThemeModal';
 
 type propsModal = {
