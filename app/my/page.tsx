@@ -11,7 +11,7 @@ export default function MyPage() {
       <div className="h-1 w-full bg-gray-200"></div>
       <BudgetTracker />
       <div className="h-1 w-full bg-gray-200"></div>
-      <ActivityMissionZone />
+      <ActivityMissionZone title="티끌 모아 태산" />
       <div className="h-1 w-full bg-gray-200"></div>
       <UserPostsList />
     </>

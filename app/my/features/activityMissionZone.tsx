@@ -1,10 +1,13 @@
 import Image from 'next/image';
 
-// import lv2 from '/lv2.svg';
-export function ActivityMissionZone() {
+interface IProps {
+  title?: string;
+}
+
+export function ActivityMissionZone({ title }: IProps) {
   return (
-    <div className="flex flex-col gap-12 px-6 py-12">
-      <h3 className="text-2xl font-bold">활동미션 영역</h3>
+    <div className="flex flex-col gap-14 px-6 py-20">
+      {title && <h3 className="text-2xl font-bold">{title}</h3>}
       <div className="relative">
         <Image
           className="absolute left-[-8px] top-[-32%] z-10"
