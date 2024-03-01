@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c082fb93-b266-4373-af20-73e534c15b43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/home/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/home/features/WriteBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/card-detail/components/layout/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/card-detail/components/layout/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/features/card/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/features/card/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +34,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="feature/home/jiwoong" />
-                    <option name="lastUsedInstant" value="1708838601" />
+                    <option name="lastUsedInstant" value="1709267230" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="develop" />
@@ -49,9 +52,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2cqSlezg4TrhTv5j3EdVh3rz02f" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -62,6 +68,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "code.cleanup.on.save": "true",
     "git-widget-placeholder": "feature/home/jiwoong",
     "last_opened_file_path": "/Users/woong/Desktop/project/one-poon",
     "node.js.detected.package.eslint": "true",
@@ -69,7 +76,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
+    "prettierjs.PrettierConfiguration.Package": "/Users/woong/Desktop/project/one-poon/node_modules/prettier",
+    "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Users/woong/Desktop/project/one-poon/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
