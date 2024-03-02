@@ -1,11 +1,11 @@
 import { Avatar } from '../avatar/avatar';
 
-type Props = {
+interface IProps {
   src?: string;
   size?: 'md' | 'lg' | 'sm' | 'xs';
 };
 
-export const AvatarProfile = ({ size = 'md' }: Props) => {
+export const AvatarProfile = ({ size = 'md' }: TPIPropsrops) => {
   return (
     <div className="flex gap-3">
       <Avatar size={size} src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" shape="circle" />

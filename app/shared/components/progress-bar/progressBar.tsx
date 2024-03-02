@@ -1,4 +1,4 @@
-type Props = {
+interface IProps {
   value: number;
   targetAmount?: number;
   currentAmount?: number;
@@ -6,7 +6,7 @@ type Props = {
   isColumn?: boolean;
 };
 
-export const ProgressBar = ({ value, targetAmount, currentAmount, isColumn, unit = '원' }: Props) => {
+export const ProgressBar = ({ value, targetAmount, currentAmount, isColumn, unit = '원' }: IProps) => {
   const newTargetAmount = unit === '원' ? targetAmount?.toLocaleString() : targetAmount;
   const newCurrentAmount = unit === '원' ? currentAmount?.toLocaleString() : currentAmount;
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 
-type Props = {
+interface IProps {
   children: React.ReactNode;
 };
 
-export const Layout = ({ children }: Props) => {
-  return <div className="m-auto h-full min-h-dvh w-1/3 shadow-md">{children}</div>;
+export const Layout = ({ children }: IProps) => {
+  return <div className="h-full min-h-dvh shadow-md">{children}</div>;
 };

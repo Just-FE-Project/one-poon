@@ -2,12 +2,12 @@ import { DropDownItemListType } from '@/card-detail/types/domain';
 
 import { VerticalDots } from '../vertical-dots/verticalDots';
 
-type Props = {
+interface IProps {
   itemList?: DropDownItemListType[];
   size?: 'md' | 'lg' | 'sm' | 'xs';
 };
 
-export const Dropdown = ({ size = 'md' }: Props) => {
+export const Dropdown = ({ size = 'md' }: IProps) => {
   return (
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn m-1 border-none bg-white shadow-none">
