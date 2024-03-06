@@ -10,9 +10,8 @@ import Divider from '@/shared/components/divider/divider';
 import { Loading } from '@/shared/components/loading/loading';
 import { Modal } from '@/shared/components/modal/modal';
 
-import WriteModal from './list/WriteModal';
+import WriteModal from './home/components/modal/WriteModal';
 import { Chip, Chips } from './shared/components/chips/chips';
-import { ProgressBar } from './shared/components/progress-bar/progressBar';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -122,7 +121,6 @@ export default function Home() {
         모달 열기
       </button>
       <WriteModal open={isWriteModalOpen} onClick={handleWriteModal} />
-
     </main>
   );
 }
