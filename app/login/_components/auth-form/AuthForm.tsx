@@ -16,13 +16,17 @@ const AuthForm = () => {
   const oAuthProviders: OAuthProviders[] = [
     {
       name: 'kakao',
-      displayName: 'Sign in with Kakao',
-      icon: <SiKakaotalk color="black" />
+      displayName: '카카오로 로그인',
+      icon: (
+        <div className="radius-m bg-black">
+          <SiKakaotalk color={'#ffe812'} size={24} />
+        </div>
+      )
     },
     {
       name: 'google',
-      displayName: 'Sign in with Google',
-      icon: <FcGoogle width={24} height={24} />
+      displayName: '구글로 로그인',
+      icon: <FcGoogle size={24} />
     }
   ];
 
@@ -35,7 +39,7 @@ const AuthForm = () => {
       {oAuthProviders.map(provider => (
         <form key={provider.name} className="pb-6" onSubmit={handleSubmit}>
           <input type="hidden" name="provider" value={provider.name} />
-          <Button className="w-full bg-neutral text-white">
+          <Button className="w-full border-none bg-neutral text-white" size="lg">
             <span className="mr-2">{provider.icon}</span>
             <span>{provider.displayName}</span>
           </Button>
