@@ -3,6 +3,7 @@ import '@/shared/styles/global.css';
 import type { Metadata } from 'next';
 
 import { Main } from '@/shared/layout';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export const metadata: Metadata = {
   title: 'Create Next App',

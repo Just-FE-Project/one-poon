@@ -34,7 +34,7 @@ const ModalHeader = ({ className, children }: IModalHeaderProps) => (
 interface IModalBodyProps extends PropsWithChildren {
   className?: string;
 }
-const ModalBody = ({ className, children }: IModalBodyProps) => <p className={cn('py-4', className)}>{children}</p>;
+const ModalBody = ({ className, children }: IModalBodyProps) => <div className={cn('py-4', className)}>{children}</div>;
 interface IModalActionsProps extends PropsWithChildren {
   className?: string;
 }

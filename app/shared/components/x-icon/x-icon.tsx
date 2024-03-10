@@ -1,10 +1,8 @@
-import React from 'react';
-
-type XIconProps = {
+interface IXIconProps {
   onClick: () => void;
 };
 
-export const XIcon = ({ onClick }: XIconProps) => {
+export const XIcon = ({ onClick }: IXIconProps) => {
   return (
     <div className="text-gray flex-none">
       <button className="btn btn-square btn-ghost w-6" onClick={onClick}>

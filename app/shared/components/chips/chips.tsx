@@ -6,9 +6,10 @@ import { cn } from '@/shared/utils/className';
 
 type TChipColor = Exclude<ComponentColor, 'ghost'>;
 
-interface IChipItem {
+export interface IChipItem {
   text: string | number;
   isActive: boolean;
+  count?: number;
 }
 
 interface IChipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'color'> {
@@ -65,7 +66,7 @@ export const Chip = memo(({ className, item, onChipClick, size, color }: IChipPr
   const classes = getChipClasses(item.isActive, size, color, className);
   return (
     <button className={classes} onClick={onChipClick} aria-pressed={item.isActive}>
-      <div>{item.text}</div>
+      <div>{item.text + (item.count ? ` (${item.count})` : '')}</div>
     </button>
   );
 });
