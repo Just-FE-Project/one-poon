@@ -17,7 +17,7 @@ const ModalComponent = forwardRef<HTMLDialogElement, IProps>(
     });
     return (
       <dialog aria-label="Modal" open={open} aria-modal={open} className={classes} ref={ref}>
-        <div className={`modal-box ${boxStyle}`}>{children}</div>
+        <div className={`modal-box ${boxStyle}`}>{typeof children === 'string' ? <div>{children}</div> : children}</div>
       </dialog>
     );
   }
@@ -27,7 +27,9 @@ interface IModalHeaderProps extends PropsWithChildren {
   className?: string;
 }
 const ModalHeader = ({ className, children }: IModalHeaderProps) => (
-  <h3 className={cn('text-lg font-bold', className)}>{children}</h3>
+  <h3 className={cn('text-lg font-bold', className)}>
+    <div>{typeof children === 'string' ? <div>{children}</div> : children}</div>
+  </h3>
 );
 interface IModalBodyProps extends PropsWithChildren {
   className?: string;

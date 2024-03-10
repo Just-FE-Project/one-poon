@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import WriteModal from '@/list/WriteModal';
+import WriteModal from '@/home/components/modal/WriteModal';
 
 export const WriteBtn = () => {
   const [isWriteModalOpen, setIsWriteModalOpen] = useState(false);
