@@ -7,7 +7,7 @@ import { Modal } from '@/shared/components/modal/modal';
 import { XIcon } from '@/shared/components/x-icon/x-icon';
 
 import ThemeModal from './ThemeModal';
-
+// 수정
 type propsModal = {
   onClick: (state?: boolean) => void;
   open: boolean;
