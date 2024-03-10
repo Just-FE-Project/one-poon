@@ -24,7 +24,7 @@ const ThemeModal = ({ open, onClick }: Props) => {
           transition: 'transform 0.3s ease-in-out',
           borderRadius: '30px'
         }}
-        className="h-20vh] fixed bottom-0 left-0 w-full rounded-sm bg-base-200 p-4 text-base-content">
+        className="fixed bottom-0 left-0 h-[20vh] w-full rounded-sm bg-base-200 p-4 text-base-content">
         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu">
           {THEME_LIST.map((theme, i) => (
