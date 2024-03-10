@@ -15,7 +15,7 @@ import { cardDetailRepository } from '../repository/repository';
 import { CardDetailAppBar } from '../features/detail/components/card-detail-app-bar';
 
 const Index = () => {
-  const { Layout, Body } = cardDetailLayouts;
+  const { CardDetailLayout, Body } = cardDetailLayouts;
   const queryClient = new QueryClient();
   const setId = useCardDetailState(state => state.setId);
   const pathname = usePathname();
@@ -26,12 +26,12 @@ const Index = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Layout>
+      <CardDetailLayout>
         <CardDetailAppBar />
         <Body>
           <CardDetailDetailWidget />
         </Body>
-      </Layout>
+      </CardDetailLayout>
     </QueryClientProvider>
   );
 };
