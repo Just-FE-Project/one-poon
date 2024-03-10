@@ -18,7 +18,7 @@ export const Card = ({ cardItem: { id, chips, desc, like, price, title } }: ICar
   const _price = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const router = useRouter();
   const detailHandler = () => {
-    router.push(`/card-detail?id=${id}`);
+    router.push(`/card-detail/${id}`);
   };
 
   return (
