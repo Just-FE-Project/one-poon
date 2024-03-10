@@ -41,10 +41,6 @@ export const supabaseGetComment = async (postId: number) => {
     console.log(error);
     throw new Error('Supabase에서 comment를 가져올 수 없습니다.');
   }
-
-  if (data.length === 0) {
-    throw new Error('해당 ID의 Post가 존재하지 않습니다.');
-  }
   
   return data;
 };

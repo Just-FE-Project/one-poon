@@ -14,7 +14,7 @@ export const ProgressBar = ({ targetAmount = 0, currentAmount = 0, isColumn, uni
         className="progress progress-success w-56"
         value={100 / (targetAmount / currentAmount)}
         max="100"></progress>
-      <p className="text-gray-400">{`${newTargetAmount}${unit} / ${newCurrentAmount}${unit}`}</p>
+      <p className="text-gray-400">{`${newCurrentAmount}${unit} / ${newTargetAmount}${unit}`}</p>
     </div>
   );
 };
