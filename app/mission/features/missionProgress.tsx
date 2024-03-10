@@ -38,13 +38,9 @@ export function MissionProgress({ title, type, progress, status }: IProps) {
             <div className="flex items-center gap-1 font-bold text-gray-400">
               {type === 'money' ? (
                 <>
-                  <span>
-                    {new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(progress.current)}원
-                  </span>
+                  <span>{progress.current.toLocaleString('ko-KR')}원</span>
                   <span>/</span>
-                  <span>
-                    {new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(progress.total)}원
-                  </span>
+                  <span>{progress.total.toLocaleString('ko-KR')}원</span>
                 </>
               ) : (
                 <>
