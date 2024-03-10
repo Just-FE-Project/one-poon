@@ -54,7 +54,7 @@ const WriteModal = ({ onClick, open }: propsModal) => {
           </div>
           <hr className="relative left-[-21px] w-[768px]" />
           <div className="h-[50px]">
-            <p className="flex h-[50px] items-center">금액</p>
+            <input className="h-[50px] font-bold outline-none" placeholder="금액"></input>
           </div>
           <hr className="relative left-[-21px] w-[768px]" />
           <div className="flex flex-col justify-between">
