@@ -1,7 +1,7 @@
 import { Body } from './body';
-import { Layout } from './layout';
+import { CardDetailLayout } from './CardDetailLayout';
 
 export const cardDetailLayouts = {
-  Layout: Layout,
+  Layout: CardDetailLayout,
   Body: Body
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 
-type Props = {
+interface IProps {
   children: React.ReactNode;
 };
 
-export const Body = ({ children }: Props) => {
-  return <div className="flex flex-col pt-6">{children}</div>;
+export const Body = ({ children }: IProps) => {
+  return <div className="flex flex-col pt-[80px]">{children}</div>;
 };

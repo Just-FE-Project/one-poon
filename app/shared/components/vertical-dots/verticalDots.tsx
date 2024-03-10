@@ -1,8 +1,8 @@
-type Props = {
+interface IProps {
   size?: 'md' | 'lg' | 'sm' | 'xs';
 };
 
-export const VerticalDots = ({ size = 'md' }: Props) => {
+export const VerticalDots = ({ size = 'md' }: IProps) => {
   return (
     <div className="flex-none">
       <button className={`btn btn-square btn-ghost ${size === 'md' ? 'w-3' : 'w-2'}`}>

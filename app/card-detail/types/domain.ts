@@ -1,4 +1,4 @@
-export type DropDownItemListType = {
+export interface IDropDownItemListType {
   text: string;
-  onClickHandler: () => void;
-};
+  action: () => void;
+}

@@ -97,6 +97,7 @@ const config: Config = {
   daisyui: {
     themes: ['pastel']
   },
-  plugins: [require('daisyui')]
+  plugins: [require('daisyui')],
+  mode: 'jit'
 };
 export default config;
