@@ -9,15 +9,11 @@ const THEME_LIST = ['합리적 소비', '멍청비용', '자린고비'];
 const ThemeModal = ({ open, onClick }: Props) => {
   return (
     <div
-      style={{
-        transform: open ? 'translateY(0)' : 'translateY(100%)',
-        transition: 'transform 0.3s ease-in-out',
-        borderRadius: '30px'
-      }}
-      className="fixed bottom-0 left-0 h-[20vh] w-full rounded-sm bg-base-200 p-4 text-base-content">
+      className={`fixed bottom-0 left-0 h-[20vh] w-full rounded-[30px] bg-base-200 p-4 text-base-content transition-transform duration-300
+        ease-in-out ${open ? 'translate-y-0' : 'translate-y-full'}`}>
       <Image
         src={'/down-arrow.svg'}
-        className="mx-auto my-0"
+        className="mx-auto my-0 cursor-pointer"
         onClick={onClick}
         width={15}
         height={15}

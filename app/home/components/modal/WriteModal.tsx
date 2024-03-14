@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-import rightArrow from '@/assets/arrow-right.png';
 import { AppBar } from '@/shared/components/app-bar/appBar';
 import { Modal } from '@/shared/components/modal/modal';
 
 import ThemeModal from './ThemeModal';
-// 수정
+
 type propsModal = {
   onClick: (state?: boolean) => void;
   open: boolean;
@@ -21,7 +20,7 @@ const WriteModal = ({ onClick, open }: propsModal) => {
 
   return (
     <>
-      <Modal open={open} position="middle" boxStyle="max-w-[100%] w-full max-h-dvh h-dvh overflow-hidden">
+      <Modal open={open} position="middle" boxStyle="max-w-[100%] w-full max-h-dvh h-dvh overflow-hidden rounded-none">
         <div className="p-[10px]">
           <AppBar
             leftClassName={'left-0'}
@@ -61,7 +60,13 @@ const WriteModal = ({ onClick, open }: propsModal) => {
                 />
                 <div className="drawer-content">
                   <label htmlFor="my-drawer-4">
-                    <Image src={rightArrow} width="10" height="10" alt="right arrow icon" />
+                    <Image
+                      src={'/right-arrow.svg'}
+                      className="cursor-pointer"
+                      width={10}
+                      height={10}
+                      alt="right arrow icon"
+                    />
                   </label>
                 </div>
                 <ThemeModal open={isOpenThemeModal} onClick={handleToggleTHemeModal} />
