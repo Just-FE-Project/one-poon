@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-import cameraIcon from '@/assets/camera-icon.png';
 import { AppBar } from '@/shared/components/app-bar/appBar';
 import { Modal } from '@/shared/components/modal/modal';
-import { XIcon } from '@/shared/components/x-icon/x-icon';
 
 import ThemeModal from './ThemeModal';
 // 수정
@@ -25,13 +23,16 @@ const WriteModal = ({ onClick, open }: propsModal) => {
       <Modal open={open} position="middle" boxStyle="max-w-[768px] w-full max-h-dvh h-dvh overflow-hidden">
         <div className="p-[10px]">
           <AppBar
+            leftClassName={'left-0'}
             leftChildren={
-              <XIcon
+              <button
+                className="btn btn-square btn-ghost"
                 onClick={() => {
                   onClick();
                   handleToggleTHemeModal();
-                }}
-              />
+                }}>
+                <Image src={'/x-mark.svg'} width={20} height={20} alt="close icon" />
+              </button>
             }
             centerChildren={'한푼한푼 글쓰기'}
             rightChildren={
@@ -54,14 +55,14 @@ const WriteModal = ({ onClick, open }: propsModal) => {
           </div>
           <hr className="relative left-[-21px] w-[768px]" />
           <div className="h-[50px]">
-            <input className="h-[50px] font-bold outline-none" placeholder="금액"></input>
+            <input className="h-[50px] w-full font-bold outline-none" placeholder="금액"></input>
           </div>
           <hr className="relative left-[-21px] w-[768px]" />
           <div className="flex flex-col justify-between">
             <div className="flex flex-col">
               <input className="h-[50px] font-bold outline-none" placeholder="제목을 입력하세요"></input>
               <textarea
-                className="h-[400px] outline-none"
+                className="h-[400px] resize-none outline-none"
                 placeholder="현명한 소비였는지 질문이나 이야기를 해보세요"></textarea>
             </div>
             <div>
@@ -71,8 +72,8 @@ const WriteModal = ({ onClick, open }: propsModal) => {
               <hr className="relative left-[-21px] w-[768px]" />
               <span className="flex h-[50px] items-center gap-2">
                 <div className="text-gray flex-none">
-                  <button className="btn btn-square btn-ghost w-6" onClick={() => {}}>
-                    <Image src={cameraIcon} alt="camera icon" />
+                  <button className="btn btn-square btn-ghost" onClick={() => {}}>
+                    <Image src={'/camera.svg'} width={20} height={20} alt="camera icon" />
                   </button>
                 </div>
                 사진
