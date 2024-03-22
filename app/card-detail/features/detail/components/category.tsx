@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 
 import { Chip, Chips } from '@/shared/components/chips/chips';
-import { CardDetailContext } from '../widgets/context';
+
 import { useCardDetailProvider } from '../widgets/useProvider';
 
 export { Category as CardDetailCategory };
