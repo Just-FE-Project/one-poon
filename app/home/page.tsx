@@ -5,7 +5,7 @@ import { Cards } from '@/home/features/card/cards';
 import { Categories } from '@/home/features/categories';
 import { WriteBtn } from '@/home/features/WriteBtn';
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <div>

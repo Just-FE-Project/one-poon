@@ -1,6 +1,6 @@
 interface IXIconProps {
   onClick: () => void;
-};
+}
 
 export const XIcon = ({ onClick }: IXIconProps) => {
   return (
